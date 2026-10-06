@@ -5,15 +5,15 @@ from model.AlbumFormat import AlbumFormat
 from model.Format import Format
 from schema.Format import FormatCreate, FormatUpdate
 
-#Trae todos los formats
+
 def get_all_formats(db: Session):
     return db.query(Format).all()
 
-#Traer el forma por id
+
 def get_format(db: Session, format_id: int):
     return db.get(Format, format_id)
 
-#Crea un formato
+
 def create_format(db: Session, data: FormatCreate):
     format_ = Format(**data.model_dump())
     db.add(format_)
@@ -21,7 +21,7 @@ def create_format(db: Session, data: FormatCreate):
     db.refresh(format_)
     return format_
 
-#Aactualiza el formato que le pasas por id
+
 def update_format(db: Session, format_id: int, data: FormatUpdate):
     format_ = get_format(db, format_id)
     if format_ is None:
@@ -32,7 +32,7 @@ def update_format(db: Session, format_id: int, data: FormatUpdate):
     db.refresh(format_)
     return format_
 
-#Borrar el formato 
+
 def delete_format(db: Session, format_id: int):
     format_ = get_format(db, format_id)
     if format_ is None:
