@@ -2,36 +2,34 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from config.config import APP_DESCRIPTION, APP_TITLE, APP_VERSION
-from database.database import Base, engine
+from .config.config import APP_DESCRIPTION, APP_TITLE, APP_VERSION
+from .database.database import Base, engine
 
 
-from model import (  
-    model_album,
-    model_album_format,
-    model_artist,
-    model_branch,
-    model_format,
-    model_genre,
-    model_record_label,
+from .model import (  
+    model_albums,
+    model_album_formats,
+    model_artists,
+    model_branches,
+    model_formats,
+    model_genres,
+    model_record_labels,
 )
 
 
-from routes import (
-    route_album,
-    route_artist,
-    route_branch,
-    route_format,
-    route_genre,
-    route_record_label,
+from .routes import (
+    routes_albums,
+    routes_artists,
+    routes_branches,
+    routes_formats,
+    routes_genres,
+    routes_record_labels,
 )
 
 
-# Crear tablas
 Base.metadata.create_all(bind=engine)
 
 
-# FAST API
 app = FastAPI(
     title=APP_TITLE,
     version=APP_VERSION,
@@ -39,7 +37,6 @@ app = FastAPI(
 )
 
 
-# CORS 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  
@@ -49,7 +46,6 @@ app.add_middleware(
 )
 
 
-# Manejo de errores 
 @app.exception_handler(ValueError)
 async def value_error_handler(request: Request, exc: ValueError):
    
@@ -62,15 +58,14 @@ async def general_error_handler(request: Request, exc: Exception):
     return JSONResponse(status_code=500, content={"detail": "Error interno del servidor"})
 
 
-# Rutas
-app.include_router(route_album.router)
-app.include_router(route_artist.router)
-app.include_router(route_branch.router)
-app.include_router(route_format.router)
-app.include_router(route_genre.router)
-app.include_router(route_record_label.router)
+app.include_router(routes_albums.router)
+app.include_router(routes_artists.router)
+app.include_router(routes_branches.router)
+app.include_router(routes_formats.router)
+app.include_router(routes_genres.router)
+app.include_router(routes_record_labels.router)
 
 
 @app.get("/")
 def root():
-    return {"message": f"{APP_TITLE} funcionando"}
+    return {"message": f"{APP_TITLE} en funcionamiento"}

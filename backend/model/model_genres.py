@@ -4,7 +4,7 @@ from backend.database.database import Base
 
 album_genres = Table(
     "album_genres",
-    Base.metadate,
+    Base.metadata,
     Column("album_id", Integer, ForeignKey("albums.id"), primary_key=True),
     Column("genres_id", Integer, ForeignKey("genres.id"), primary_key=True)
     )
