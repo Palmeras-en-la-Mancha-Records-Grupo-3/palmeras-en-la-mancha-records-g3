@@ -9,6 +9,7 @@ from backend.schema.schema_albums import (
 )
 from backend.controller.controller_albums import (
     create_album,
+    get_all_albums,
     get_albums,
     get_album,
     update_album,
@@ -36,27 +37,45 @@ def create_album_routes(
     )
 
 @router.get(
-    "/",
+    "",
     response_model=list[AlbumResponse],
     summary="Consulta la lista de álbumes"
 )
+def get_albums_routes(
+    db: Session = Depends(get_db),
+):
+    return get_all_albums(
+        db=db,
+    )
+
+@router.get(
+    "/search",
+    response_model=list[AlbumResponse],
+    summary="Consulta álbumes por título, artista, sello, formato o género"
+)
 def list_albums(
     title: str | None = None,
-    artist: str | None = None,
+    artist_id: int | None=None,
+    artist_name: str | None = None,
     label_id: int | None = None,
     label_name: str | None = None,
     format_id: int | None = None,
     format_name: str | None = None,
+    genre_id: int | None=None,
+    genre_name: str | None=None,
     db: Session = Depends(get_db),
 ):
     return get_albums(
         db,
         title=title,
-        artist=artist,
+        artist_id=artist_id,
+        artist_name=artist_name,
         label_id=label_id,
         label_name=label_name,
         format_id=format_id,
         format_name=format_name,
+        genre_id=genre_id,
+        genre_name=genre_name
     )
 
 @router.get(
