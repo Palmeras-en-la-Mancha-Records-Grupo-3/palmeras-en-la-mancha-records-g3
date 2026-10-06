@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from model.Branch import Branch
-from schema.Branch import BranchCreate, BranchUpdate
+from backend.model.model_branches import Branch
+from backend.schema.schema_branches import BranchCreate, BranchUpdate
 
 
 def get_all_branches(db: Session):

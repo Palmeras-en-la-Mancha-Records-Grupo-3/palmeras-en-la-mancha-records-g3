@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from model.model_album import Album
-from model.model_artist import Artist
-from schema.schema_artist import ArtistCreate, ArtistUpdate
+from backend.model.model_albums import Album
+from backend.model.model_artists import Artist
+from backend.schema.schema_artists import ArtistCreate, ArtistUpdate
 
 
 def get_all_artists(db: Session):

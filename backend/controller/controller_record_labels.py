@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from model.Album import Album
-from model.RecordLabel import RecordLabel
-from schema.RecordLabel import RecordLabelCreate, RecordLabelUpdate
+from backend.model.model_albums import Album
+from backend.model.model_record_labels import RecordLabel
+from backend.schema.schema_record_labels import RecordLabelCreate, RecordLabelUpdate
 
 
 def get_all_labels(db: Session):

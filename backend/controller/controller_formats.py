@@ -1,9 +1,9 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.orm import Session
 
-from model.AlbumFormat import AlbumFormat
-from model.Format import Format
-from schema.Format import FormatCreate, FormatUpdate
+from backend.model.model_album_formats import AlbumFormat
+from backend.model.model_formats import Format
+from backend.schema.schema_formats import FormatCreate, FormatUpdate
 
 
 def get_all_formats(db: Session):
