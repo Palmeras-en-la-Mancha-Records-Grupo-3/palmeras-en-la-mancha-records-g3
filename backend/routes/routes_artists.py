@@ -17,7 +17,7 @@ from backend.controller.controller_artists import (
 
 router = APIRouter(
     prefix="/api/artist",
-    tags=["artist"]
+    tags=["Artistas"]
 )
 
 @router.post(

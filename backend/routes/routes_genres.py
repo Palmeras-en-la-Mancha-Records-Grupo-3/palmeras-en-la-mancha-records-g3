@@ -17,14 +17,14 @@ from backend.controller.controller_genres import (
 
 router = APIRouter(
     prefix="/api/genre",
-    tags=["genre"]
+    tags=["Géneros"]
 )
 
 @router.post(
     "",
     response_model=GenreResponse,
     status_code=status.HTTP_201_CREATED,
-    summary="Crea genre"
+    summary="Crea un género"
 )
 def create_genre_routes(
     genre_data: GenreCreate,
@@ -38,7 +38,7 @@ def create_genre_routes(
 @router.get(
     "",
     response_model=list[GenreResponse],
-    summary="Consulta la lista de genres"
+    summary="Consulta la lista de géneros"
 )
 def get_genres_routes(
     db: Session = Depends(get_db),
@@ -50,7 +50,7 @@ def get_genres_routes(
 @router.get(
     "/{genre_id}",
     response_model=GenreResponse,
-    summary="Consulta genre"
+    summary="Consulta un género"
 )
 def get_genre_routes(
     genre_id: int,
@@ -64,7 +64,7 @@ def get_genre_routes(
 @router.put(
     "/{genre_id}",
     response_model=GenreResponse,
-    summary="Modifica genre"
+    summary="Modifica un género"
 )
 def update_genre_routes(
     genre_id: int,
@@ -80,7 +80,7 @@ def update_genre_routes(
 @router.delete(
     "/{genre_id}",
     status_code=status.HTTP_204_NO_CONTENT,
-    summary="Elimina genre"
+    summary="Elimina un género"
 )
 def delete_genre_routes(
     genre_id: int,

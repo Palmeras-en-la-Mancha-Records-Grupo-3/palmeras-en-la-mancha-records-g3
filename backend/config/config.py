@@ -17,7 +17,7 @@ APP_VERSION: str = os.getenv(
 
 APP_DESCRIPTION: str = os.getenv(
     "APP_DESCRIPTION",
-    "REST API for managing the Palmeras en la Mancha Records catalog."
+    "REST API para la gestión del catálogo de Palmeras en la Mancha Records."
 )
 
 

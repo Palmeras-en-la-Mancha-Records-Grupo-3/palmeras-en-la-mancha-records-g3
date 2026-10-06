@@ -35,7 +35,11 @@ def create_album_routes(
         album_data
     )
 
-@router.get("/", response_model=list[AlbumResponse])
+@router.get(
+    "/",
+    response_model=list[AlbumResponse],
+    summary="Consulta la lista de álbumes"
+)
 def list_albums(
     title: str | None = None,
     artist: str | None = None,
