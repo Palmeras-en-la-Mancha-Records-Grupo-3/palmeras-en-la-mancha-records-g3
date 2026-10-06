@@ -11,5 +11,5 @@ class AlbumFormat(Base):
     price = Column(Numeric(10, 2), nullable=False)
     stock = Column(Integer, nullable=False)
 
-    album = relationship("Album", back_populates="album_format")
-    format = relationship("Format", back_populates="album_format")
+    album = relationship("Album", back_populates="album_formats")
+    format = relationship("Format", back_populates="album_formats")

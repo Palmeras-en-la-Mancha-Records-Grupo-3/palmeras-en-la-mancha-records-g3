@@ -11,8 +11,9 @@ album_artists = Table(
 
 class Artist(Base):
     __tablename__ = "artists"
+
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     name = Column(String, index=True, nullable=False, unique=True)
     description = Column(String, nullable=False)
 
-    album = relationship("Album", secondary=album_artists, back_populates="artists")
+    albums = relationship("Album", secondary=album_artists, back_populates="artists")
