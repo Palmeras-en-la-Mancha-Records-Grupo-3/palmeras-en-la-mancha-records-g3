@@ -7,7 +7,7 @@ from model.AlbumFormat import AlbumFormat
 from model.Format import Format
 from model.RecordLabel import RecordLabel
 from schema.Album import AlbumCreate, AlbumUpdate
-
+from sqlalchemy.exc import IntegrityError
 
 def _check_label(db: Session, label_id: int):
     if db.get(RecordLabel, label_id) is None:
@@ -74,9 +74,14 @@ def create_album(db: Session, data: AlbumCreate):
     _check_label(db, fields["label_id"])
     album = Album(**fields)
     album.formats = _build_formats(db, formats)
+    try:
+        db.add(album)
+        db.commit()
+    except IntegrityError:
+        db.rollback()
+        raise ValueError("No se pudo guardar el álbum: datos duplicados o inválidos")
 
-    db.add(album)
-    db.commit()
+    
     db.refresh(album)
     return album
 
