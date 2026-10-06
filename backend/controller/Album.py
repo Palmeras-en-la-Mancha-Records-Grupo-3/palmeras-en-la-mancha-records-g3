@@ -2,18 +2,19 @@ import cloudinary.uploader
 from fastapi import UploadFile
 from sqlalchemy.orm import Session
 
-from backend.model.model_albums import Album
-from backend.model.model_album_formats import AlbumFormat
-from backend.model.model_formats import Format
-from backend.model.model_record_labels import RecordLabel
-from backend.schema.schema_albums import AlbumCreate, AlbumUpdate
+from model.Album import Album
+from model.AlbumFormat import AlbumFormat
+from model.Format import Format
+from model.RecordLabel import RecordLabel
+from schema.Album import AlbumCreate, AlbumUpdate
 from sqlalchemy.exc import IntegrityError
 
+#Sirve para comprobar que la discográfica existe
 def _check_label(db: Session, label_id: int):
     if db.get(RecordLabel, label_id) is None:
         raise ValueError(f"La discográfica {label_id} no existe")
 
-
+#Prepara las ediciones de album
 def _build_formats(db: Session, formats: list[dict]):
    
     editions = []
@@ -25,7 +26,7 @@ def _build_formats(db: Session, formats: list[dict]):
         )
     return editions
 
-
+#Devuelve los albumes
 def get_albums(
     db: Session,
     title: str | None = None,
@@ -61,12 +62,12 @@ def get_albums(
 
     return query.distinct().all()
 
-
+#Devuelve un album buscando por id
 def get_album(db: Session, album_id: int):
     return db.get(Album, album_id)
 
 
-
+#Crear un album
 def create_album(db: Session, data: AlbumCreate):
     fields = data.model_dump()
     formats = fields.pop("formats", [])
@@ -86,7 +87,7 @@ def create_album(db: Session, data: AlbumCreate):
     return album
 
 
-
+#Actualiza un album
 def update_album(db: Session, album_id: int, data: AlbumUpdate):
     album = get_album(db, album_id)
     if album is None:
@@ -109,7 +110,7 @@ def update_album(db: Session, album_id: int, data: AlbumUpdate):
     return album
 
 
-
+#Borra un album
 def delete_album(db: Session, album_id: int):
     album = get_album(db, album_id)
     if album is None:
@@ -119,7 +120,7 @@ def delete_album(db: Session, album_id: int):
     return True
 
 
-
+#Subir la portada de album a cloudinary
 def upload_cover(db: Session, album_id: int, file: UploadFile):
     album = get_album(db, album_id)
     if album is None:
