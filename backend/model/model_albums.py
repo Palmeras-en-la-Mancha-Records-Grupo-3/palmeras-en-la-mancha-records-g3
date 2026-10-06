@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from backend.database.database import Base
-from backend.model.model_album_artists import album_artists
+from backend.model.model_artists import album_artists
 from backend.model.model_genres import album_genres
 
 class Album(Base):
@@ -21,4 +21,3 @@ class Album(Base):
     artists = relationship("Artist", secondary=album_artists, back_populates="album")
 
     genres = relationship("Genre", secondary=album_genres, back_populates="album")
-
