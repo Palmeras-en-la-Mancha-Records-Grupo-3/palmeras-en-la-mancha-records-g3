@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from model.model_album import Album
-from model.model_genre import Genre
-from schema.schema_genre import GenreCreate, GenreUpdate
+from backend.model.model_albums import Album
+from backend.model.model_genres import Genre
+from backend.schema.schema_genres import GenreCreate, GenreUpdate
 
 
 def get_all_genres(db: Session):

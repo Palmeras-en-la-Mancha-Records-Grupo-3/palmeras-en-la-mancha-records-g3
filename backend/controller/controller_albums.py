@@ -2,11 +2,11 @@ import cloudinary.uploader
 from fastapi import UploadFile
 from sqlalchemy.orm import Session
 
-from model.Album import Album
-from model.AlbumFormat import AlbumFormat
-from model.Format import Format
-from model.RecordLabel import RecordLabel
-from schema.Album import AlbumCreate, AlbumUpdate
+from backend.model.model_albums import Album
+from backend.model.model_album_formats import AlbumFormat
+from backend.model.model_formats import Format
+from backend.model.model_record_labels import RecordLabel
+from backend.schema.schema_albums import AlbumCreate, AlbumUpdate
 from sqlalchemy.exc import IntegrityError
 
 def _check_label(db: Session, label_id: int):
