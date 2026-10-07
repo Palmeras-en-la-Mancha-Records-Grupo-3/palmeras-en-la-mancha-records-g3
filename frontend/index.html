@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Omega - Palmeras en la Mancha Records</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            ivory: '#FAF6F0',
+                            cream: '#F4EFEB',
+                            card: '#FFFFFF',
+                            border: '#E8E2D9',
+                            terracotta: '#A63F22',
+                            terracottaHover: '#8C3218',
+                            accentOrange: '#E0622C',
+                            dark: '#1E1916',
+                            muted: '#7A7269',
+                            gold: '#DF9B28',
+                            badgeGreen: '#2E7D32',
+                            lightGreen: '#EAF5EC',
+                            lightPink: '#FCECE8'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"DM Serif Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Space Grotesk"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FAF6F0;
+            color: #1E1916;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .vinyl-grooves {
+            background:
+                radial-gradient(
+                    circle,
+                    #2d2a29 0%,
+                    #161413 40%,
+                    #0d0c0c 70%,
+                    #050505 100%
+                );
+            box-shadow:
+                inset 0 0 14px rgba(255, 255, 255, 0.08),
+                0 10px 25px -4px rgba(0, 0, 0, 0.35);
+        }
+
+        .vinyl-ring {
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        ::selection {
+            background-color: #FCECE8;
+            color: #A63F22;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-[13px] leading-relaxed text-[#2C2420]">
+
+    <!-- ========================= -->
+    <!-- SUBHEADER / BREADCRUMB -->
+    <!-- ========================= -->
+
+    <section class="border-b border-brand-border bg-[#FAF6F0]/80">
+        <div class="max-w-[1240px] mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3 text-[12px]">
+
+            <div class="flex items-center gap-1.5 text-[#736A61] overflow-x-auto whitespace-nowrap">
+
+                <a
+                    href="#"
+                    class="hover:text-brand-terracotta transition-colors flex items-center gap-1"
+                >
+                    <svg
+                        class="w-3 h-3 stroke-[2.5]"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            d="M15 19l-7-7 7-7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        ></path>
+                    </svg>
+
+                    <span>Volver al Catálogo</span>
+                </a>
+
+                <span class="text-[#AFA69D]">/</span>
+
+                <a
+                    href="#"
+                    class="hover:text-brand-terracotta transition-colors"
+                >
+                    Discos El Volcán
+                </a>
+
+                <span class="text-[#AFA69D]">/</span>
+
+                <a
+                    href="#"
+                    class="hover:text-brand-terracotta transition-colors"
+                >
+                    Flamenco Rock
+                </a>
+
+                <span class="text-[#AFA69D]">/</span>
+
+                <span class="font-semibold text-brand-terracotta">
+                    Omega (Edición Definitiva)
+                </span>
+            </div>
+
+            <div class="flex items-center gap-2">
+
+                <button
+                    class="inline-flex items-center gap-1 px-3 py-1.5 bg-[#EDE6DC] hover:bg-[#E3DAD0] text-[#4A423B] font-medium text-[11px] rounded transition-colors shadow-sm"
+                >
+                    Compartir
+                </button>
+
+                <button
+                    class="inline-flex items-center gap-1 px-3 py-1.5 bg-[#EDE6DC] hover:bg-[#E3DAD0] text-[#4A423B] font-medium text-[11px] rounded transition-colors shadow-sm"
+                >
+                    Ficha Técnica PDF
+                </button>
+
+                <button
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-terracotta hover:bg-brand-terracottaHover text-white font-semibold text-[11px] rounded shadow"
+                >
+                    Editar Álbum
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================= -->
+
+    <main class="max-w-[1240px] mx-auto px-4 sm:px-6 py-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            <!-- ================================= -->
+            <!-- LEFT COLUMN -->
+            <!-- ================================= -->
+
+            <div class="lg:col-span-5 flex flex-col gap-6">
+
+                <!-- VINYL SHOWCASE -->
+
+                <div class="bg-[#F4EFEB] border border-brand-border rounded-xl p-6 sm:p-7 flex flex-col items-center shadow-sm">
+
+                    <div class="relative w-full max-w-[340px] aspect-square flex items-center justify-center my-1 group cursor-pointer">
+
+                        <!-- VINYL -->
+                        <div
+                            class="absolute right-0 w-[84%] aspect-square rounded-full vinyl-grooves translate-x-5 shadow-2xl flex items-center justify-center transition-transform duration-500 group-hover:translate-x-8"
+                        >
+
+                            <div class="w-[85%] aspect-square rounded-full vinyl-ring flex items-center justify-center">
+
+                                <div class="w-[70%] aspect-square rounded-full vinyl-ring flex items-center justify-center">
+
+                                    <!-- CENTER LABEL -->
+                                    <div class="w-20 h-20 rounded-full bg-[#E5D7B7] border-4 border-[#1E1916] flex items-center justify-center relative shadow-inner">
+
+                                        <span class="text-[7px] font-mono tracking-tighter text-[#43311E] uppercase font-bold text-center leading-none">
+                                            OMEGA
+                                            <br>
+                                            <span class="text-[5px]">1996</span>
+                                        </span>
+
+                                        <div class="w-3.5 h-3.5 bg-[#FAF6F0] rounded-full border-2 border-[#1E1916] absolute"></div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- REAL COVER IMAGE -->
+
+                        <div class="relative z-10 w-[86%] aspect-square rounded bg-[#33221B] shadow-xl overflow-hidden border border-[#52443C] mr-auto">
+
+                            <img
+                                src="https://lh3.googleusercontent.com/aida/AEtjO1UuygPcV4etsH-pyVlCe1W9baT8lbBPQb_MAuigqykU32w-EI0iYGzmxhgDDXsfxb_jmks7rSHmulqiEXkXybcpEubBhXPd1vLC5UifPT8OObqljsKoMB_6XdSAc0X9S82SHcZ9LVKDtz0uKeBEXoNQW-aSmBQrfNjfqp9dBL_FgGxN0PgLPlSwtfVOkdJ7wI1EWchCG_IZL_iQnbjfzLurs1IjFgN-PGy2oQBlIHUSlw"
+                                alt="Omega - Enrique Morente & Lagartija Nick"
+                                class="w-full h-full object-cover select-none"
+                            >
+
+                            <!-- AUDIOPHILE -->
+                            <div class="absolute top-2.5 right-2.5 bg-black/75 backdrop-blur-sm text-white text-[9px] font-mono px-2 py-0.5 rounded-full flex items-center gap-1 border border-white/10 tracking-wider">
+
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+
+                                180G AUDIOPHILE
+
+                            </div>
+
+
+                            <!-- PLAY -->
+
+                            <button
+                                class="absolute bottom-3 left-3 w-9 h-9 rounded-full bg-black/75 hover:bg-black/90 text-white flex items-center justify-center transition-transform active:scale-95 border border-white/20 shadow-md"
+                            >
+                                <svg
+                                    class="w-4 h-4 fill-current ml-0.5"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <polygon points="6 4 20 12 6 20 6 4"></polygon>
+                                </svg>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="text-[11px] text-center italic text-[#7E7368] mt-3 max-w-xs">
+                        Desliza el cursor sobre el disco para inspeccionar el prensaje de surco profundo.
+                    </p>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- PHOTO ARCHIVE -->
+                <!-- ================================= -->
+
+                <div class="flex flex-col gap-2.5">
+
+                    <h3 class="text-[11px] font-mono font-bold uppercase tracking-wider text-[#796F65]">
+                        Fototeca de Archivo Físico
+                    </h3>
+
+
+                    <div class="grid grid-cols-4 gap-2.5">
+
+                        <!-- FRONT -->
+
+                        <div class="aspect-square rounded border-2 border-brand-terracotta overflow-hidden bg-stone-200 relative shadow-sm">
+
+                            <img
+                                src="https://lh3.googleusercontent.com/aida/AEtjO1X9gPNIOLx9ANXffGm77gaqbsXJTDUXUPaxHKxggyYxGWsFOzX6jbiJZTSopO__slNXbPJygEfYFfbJSczHqN5yKjzTSSVcnmyryqmbsk6pLzEgZC_-nfZ2bHRydUxnnd5g5gkxdkQ6Bh0RVudiXnJT-jit4W10Atn-KXHZC0diUAon4zlSFDWiU_FrpIJaO38YPry4Qsp_V_nlI6E-WxTYUY6bSWr4Zfhmb_TeYJHLdw"
+                                alt="Front - Portada"
+                                class="w-full h-full object-cover rounded"
+                            >
+
+                            <span class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[8px] font-mono py-0.5 text-center font-bold">
+                                Front
+                            </span>
+
+                        </div>
+
+
+                        <!-- DORSO -->
+
+                        <div class="aspect-square rounded border border-brand-border overflow-hidden bg-[#241F1C] relative shadow-sm">
+
+                            <img
+                                src="https://lh3.googleusercontent.com/aida/AEtjO1WJxNGb3vvplUliIk0yShKsAZc2R3BK_cQ-DV-qFo6Lh_OFGmUSJu0TUlEFmqnNXIv1jnO8qnv8pW3ZrrmLqAXbV_97we8qz-WuowaIVVY44HfLA8JfGGYFRKseVN2DFciizwNzcDOj3-POwJo7LZbvY6yuU0eS7eT9aN7OOJ4PqISFePKjMaZa4G_lN1OAH44L-qBsHkF8CAF4oMHb4wkn3MxVbOne8fAEqJnqzuxZXg"
+                                alt="Dorso - Contraportada"
+                                class="w-full h-full object-cover rounded"
+                            >
+
+                            <span class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[8px] font-mono py-0.5 text-center">
+                                Dorso
+                            </span>
+
+                        </div>
+
+
+                        <!-- GALLETA -->
+
+                        <div class="aspect-square rounded border border-brand-border overflow-hidden bg-[#E2D8C3] relative shadow-sm">
+
+                            <img
+                                src="https://lh3.googleusercontent.com/aida/AEtjO1V7wzFbJG2Le_LyMGz7Ye37XgNWafgF7golWJpPZ2jg-lwNf_9fCtGnxI-zsRZt21gNfvVSGd-wKHjsUu1Rx2oPwHgqF7dpFO_3EUR2V7iJsB7_qZPKv0OYe_ZN26WslnmXx_9fwM2ztZsynUj2nDGr1-DJiQyzzyUU29HWqttPY9dq4d3Rt_mteK5nQZtM6Q48y2QG9o04J2W-XQeNG4eQ5LpyP-uOWfCmEzCQEJcrJw"
+                                alt="Galleta - Centro vinilo"
+                                class="w-full h-full object-cover rounded"
+                            >
+
+                            <span class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[8px] font-mono py-0.5 text-center">
+                                Galleta
+                            </span>
+
+                        </div>
+
+
+                        <!-- LIBRILLO -->
+
+                        <div class="aspect-square rounded border border-brand-border overflow-hidden bg-[#ECE8E1] relative shadow-sm p-1">
+
+                            <img
+                                src="https://lh3.googleusercontent.com/aida/AEtjO1XZZbOce7S57V2Xn8U9mNcsclSWrnPMwBDfLJVACcNpkf8FQHgsQg1jLh-4FpeYg0r95pzSfztdG7HGq1ZHhjae0r92FDf8S_7Zoj-B6TlgAbIBFylXP_NClBpyng-Ja9ocXGrZXPx_rViyogj_uHQFW-pKbmVOaZ-KDoS-O-ECqVofyXb9667Q5-lPhqoI2TIdA6VqWu7dEm3UaOPACYekzeW2KIJdNGb7cBJc0lZirQ"
+                                alt="Librillo - Libreto"
+                                class="w-full h-full object-cover rounded"
+                            >
+
+                            <span class="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[8px] font-mono py-0.5 text-center">
+                                Librillo
+                            </span>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- AUDIOPHILE INFO -->
+                <!-- ================================= -->
+
+                <div class="bg-[#F4EFEB] border border-brand-border rounded-lg p-3.5 flex items-start gap-3">
+
+                    <div class="w-9 h-9 rounded-md bg-[#256D48] text-white flex items-center justify-center shrink-0 shadow-sm">
+
+                        <span class="text-lg">♫</span>
+
+                    </div>
+
+                    <div>
+
+                        <div class="flex items-center gap-1.5 font-bold text-[#1C1714] text-[13px]">
+
+                            <span>
+                                Prensado en 180g Audiófilo
+                            </span>
+
+                            <span class="text-[#2E7D32]">✓</span>
+
+                        </div>
+
+                        <p class="text-[11.5px] text-[#695F56] leading-snug mt-0.5">
+                            Corte directo desde cinta analógica original de media pulgada de 1996.
+                            Masterizado en Abbey Road Studios para Palmeras en la Mancha.
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- LABEL -->
+                <!-- ================================= -->
+
+                <div class="bg-[#F4EFEB] border border-brand-border rounded-lg p-3.5 flex items-center justify-between gap-3">
+
+                    <div class="flex items-center gap-3">
+
+                        <div class="w-9 h-9 rounded-md bg-[#2B231F] text-amber-100 flex items-center justify-center font-bold text-[13px] tracking-tight shrink-0 shadow-sm border border-stone-700">
+                            EV
+                        </div>
+
+                        <div>
+
+                            <div class="flex items-center gap-1.5">
+
+                                <span class="font-bold text-[#1C1714] text-[13px]">
+                                    Discos El Volcán
+                                </span>
+
+                                <span class="text-[#2E7D32]">✓</span>
+
+                            </div>
+
+                            <span class="text-[11px] text-[#6E645A]">
+                                España · Madrid & Granada
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="flex flex-col items-end gap-1">
+
+                        <span class="bg-[#F6DE96] text-[#6E470E] text-[10px] font-bold px-2 py-0.5 rounded">
+                            Sello Verificado
+                        </span>
+
+                        <a
+                            href="#"
+                            class="text-[11px] font-medium text-brand-terracotta hover:underline"
+                        >
+                            86 títulos activos en archivo ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- RIGHT COLUMN -->
+            <!-- ================================= -->
+
+            <div class="lg:col-span-7 flex flex-col gap-6">
+
+                <!-- HEADER INFO -->
+
+                <div>
+
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+
+                        <div class="flex flex-wrap items-center gap-2">
+
+                            <span class="bg-brand-lightPink text-brand-terracotta text-[10px] font-extrabold uppercase tracking-wide px-2 py-0.5 rounded border border-[#F2D7D0]">
+                                Flamenco Rock / Vanguardia Experimental
+                            </span>
+
+                            <span class="bg-brand-lightGreen text-brand-badgeGreen text-[10px] font-bold px-2 py-0.5 rounded border border-[#CFE7D3]">
+                                Prensaje de Colección
+                            </span>
+
+                        </div>
+
+                        <span class="text-[10.5px] font-mono text-[#8C8276] uppercase tracking-wider">
+                            Ref: PMR-1996-OMEGA
+                        </span>
+
+                    </div>
+
+
+                    <h1 class="text-4xl sm:text-5xl font-serif font-black tracking-tight text-[#161210] mb-1">
+                        Omega
+                    </h1>
+
+                    <h2 class="text-xl sm:text-2xl font-serif text-brand-terracotta font-medium mb-2.5">
+                        Enrique Morente & Lagartija Nick
+                    </h2>
+
+
+                    <div class="flex items-center gap-2 text-[12px]">
+
+                        <div class="flex text-amber-500">
+                            ★★★★★
+                        </div>
+
+                        <span class="font-bold text-[#1F1915]">
+                            5.0
+                        </span>
+
+                        <span class="text-[#7E746A]">
+                            (Obra de Culto)
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SPECS -->
+
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 bg-[#F4EFEB] p-2.5 rounded-lg border border-brand-border text-center">
+
+                    <div class="p-1.5 bg-white/70 rounded">
+                        <span class="block text-[9px] font-mono text-[#82786E] uppercase">
+                            Año Lanzamiento
+                        </span>
+                        <span class="block text-[14px] font-bold">
+                            1996
+                        </span>
+                    </div>
+
+                    <div class="p-1.5 bg-white/70 rounded">
+                        <span class="block text-[9px] font-mono text-[#82786E] uppercase">
+                            Cód. Catálogo
+                        </span>
+                        <span class="block text-[13px] font-mono font-bold">
+                            PMR-0492
+                        </span>
+                    </div>
+
+                    <div class="p-1.5 bg-white/70 rounded">
+                        <span class="block text-[9px] font-mono text-[#82786E] uppercase">
+                            Código EAN
+                        </span>
+                        <span class="block text-[11px] font-mono font-semibold">
+                            8435015502914
+                        </span>
+                    </div>
+
+                    <div class="p-1.5 bg-white/70 rounded">
+                        <span class="block text-[9px] font-mono text-[#82786E] uppercase">
+                            Duración Total
+                        </span>
+                        <span class="block text-[14px] font-bold">
+                            52:14 min
+                        </span>
+                    </div>
+
+                    <div class="p-1.5 bg-white/70 rounded col-span-2 sm:col-span-1">
+                        <span class="block text-[9px] font-mono text-[#82786E] uppercase">
+                            Matriz Prensa
+                        </span>
+                        <span class="block text-[12px] font-mono font-bold text-[#2A7545]">
+                            RPO-ES-96
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <!-- STOCK -->
+
+                <div class="space-y-2.5">
+
+                    <div class="flex items-center justify-between">
+
+                        <h3 class="font-bold text-[#1E1916] text-[14px]">
+                            📅 Ediciones & Stock en Tiendas
+                        </h3>
+
+                        <span class="text-[10.5px] text-[#867C72]">
+                            Actualizado hace 12 min
+                        </span>
+
+                    </div>
+
+
+                    <div class="border border-brand-border rounded-lg bg-white overflow-x-auto shadow-sm">
+
+                        <table class="w-full text-left text-[11.5px] min-w-[540px]">
+
+                            <thead>
+
+                                <tr class="border-b border-brand-border bg-[#F8F4EE] text-[9.5px] font-mono uppercase tracking-wider text-[#695E55]">
+
+                                    <th class="py-2.5 px-3">
+                                        Formato & Acabado
+                                    </th>
+
+                                    <th class="py-2.5 px-3 text-center">
+                                        PVP
+                                    </th>
+
+                                    <th class="py-2.5 px-3 text-center">
+                                        Toledo
+                                    </th>
+
+                                    <th class="py-2.5 px-3 text-center">
+                                        Madrid
+                                    </th>
+
+                                    <th class="py-2.5 px-3 text-center">
+                                        Albacete
+                                    </th>
+
+                                    <th class="py-2.5 px-3 text-right">
+                                        Acción
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody class="divide-y divide-brand-border/60">
+
+                                <!-- LP -->
+
+                                <tr class="hover:bg-[#FCFAF7]">
+
+                                    <td class="py-3 px-3">
+
+                                        <div class="flex items-center gap-2.5">
+
+                                            <div class="w-6 h-6 rounded-full bg-[#1C1714] text-white flex items-center justify-center">
+                                                ●
+                                            </div>
+
+                                            <div>
+                                                <div class="font-bold">
+                                                    Vinilo LP 12" Gatefold
+                                                </div>
+
+                                                <div class="text-[10px] text-[#7A7065]">
+                                                    180g Audiophile · Carpeta Doble
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td class="py-3 px-3 text-center">
+                                        <span class="font-serif font-black text-brand-terracotta text-[15px]">
+                                            28,50 €
+                                        </span>
+                                    </td>
+
+                                    <td class="py-3 px-3 text-center text-[#256D48] font-semibold">
+                                        ● 14 uds
+                                    </td>
+
+                                    <td class="py-3 px-3 text-center text-[#256D48] font-semibold">
+                                        ● 5 uds
+                                    </td>
+
+                                    <td class="py-3 px-3 text-center text-[#256D48] font-semibold">
+                                        ● 4 uds
+                                    </td>
+
+                                    <td class="py-3 px-3 text-right">
+                                        <button class="bg-brand-terracotta text-white text-[10px] font-bold px-2.5 py-1 rounded">
+                                            Añadir
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- CD -->
+
+                                <tr class="hover:bg-[#FCFAF7]">
+
+                                    <td class="py-3 px-3">
+
+                                        <div class="flex items-center gap-2.5">
+
+                                            <div class="w-6 h-6 rounded bg-[#F8E7C5] border border-[#DECA9E] text-[#74501D] flex items-center justify-center font-bold text-[9px]">
+                                                CD
+                                            </div>
+
+                                            <div>
+                                                <div class="font-bold">
+                                                    CD Digipack 3 paneles
+                                                </div>
+
+                                                <div class="text-[10px] text-[#7A7065]">
+                                                    Remaster 20º Aniversario
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td class="py-3 px-3 text-center">
+                                        <span class="font-serif font-black text-brand-terracotta text-[15px]">
+                                            14,99 €
+                                        </span>
+                                    </td>
+
+                                    <td class="py-3 px-3 text-center text-[#256D48] font-semibold">
+                                        ● 32 uds
+                                    </td>
+
+                                    <td class="py-3 px-3 text-center text-[#256D48] font-semibold">
+                                        ● 15 uds
+                                    </td>
+
+                                    <td class="py-3 px-3 text-center text-[#256D48] font-semibold">
+                                        ● 10 uds
+                                    </td>
+
+                                    <td class="py-3 px-3 text-right">
+                                        <button class="bg-brand-terracotta text-white text-[10px] font-bold px-2.5 py-1 rounded">
+                                            Añadir
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- CASSETTE -->
+
+                                <tr class="hover:bg-[#FCFAF7]">
+
+                                    <td class="py-3 px-3">
+
+                                        <div class="flex items-center gap-2.5">
+
+                                            <div class="w-6 h-5 rounded bg-[#245B44] text-[#E0F3E9] flex items-center justify-center font-bold text-[8px]">
+                                                MC
+                                            </div>
+
+                                            <div>
+                                                <div class="font-bold">
+                                                    Cassette Edición Limitada
+                                                </div>
+
+                                                <div class="text-[10px] text-[#7A7065]">
+                                                    Cinta Cromo Mostaza Vintage
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td class="py-3 px-3 text-center">
+                                        <span class="font-serif font-black text-brand-terracotta text-[15px]">
+                                            18,00 €
+                                        </span>
+                                    </td>
+
+                                    <td class="py-3 px-3 text-center text-amber-700 font-semibold">
+                                        ● 4 uds
+                                    </td>
+
+                                    <td class="py-3 px-3 text-center text-[#256D48] font-semibold">
+                                        ● 2 uds
+                                    </td>
+
+                                    <td class="py-3 px-3 text-center text-[#938A80]">
+                                        ● Agotado
+                                    </td>
+
+                                    <td class="py-3 px-3 text-right">
+                                        <button class="bg-brand-terracotta text-white text-[10px] font-bold px-2.5 py-1 rounded">
+                                            Añadir
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TRACKS -->
+
+                <div class="space-y-2.5">
+
+                    <div class="flex items-center justify-between">
+
+                        <h3 class="font-bold text-[#1E1916] text-[14px]">
+                            🎛️ Cortes del Disco & Muestras
+                        </h3>
+
+                        <span class="text-[10px] font-semibold text-[#2E7D32]">
+                            ● Streaming Directo Flac 24-bit
+                        </span>
+
+                    </div>
+
+
+                    <div class="border border-brand-border rounded-lg bg-white overflow-hidden divide-y divide-brand-border/60 shadow-sm">
+
+                        <div class="p-3 bg-[#FAF2ED] flex items-center justify-between gap-3">
+
+                            <div class="flex items-center gap-3">
+
+                                <button class="w-7 h-7 rounded-full bg-brand-terracotta text-white flex items-center justify-center">
+                                    ❚❚
+                                </button>
+
+                                <div>
+
+                                    <div class="font-bold text-[12px]">
+                                        01. Omega
+                                        <span class="font-normal text-[#6B6156]">
+                                            (Poema de Federico García Lorca)
+                                        </span>
+                                    </div>
+
+                                    <div class="text-[10px] text-brand-terracotta font-mono">
+                                        Reproduciendo muestra A1 · 02:44 / 10:48
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <span class="font-mono text-[11px] font-bold">
+                                10:48
+                            </span>
+
+                        </div>
+
+
+                        <div class="p-2.5 px-3 flex items-center justify-between">
+
+                            <span>
+                                <strong>02. Pequeño Vals Vienés</strong>
+                                <span class="text-[#776D63]">
+                                    (Lorca / Leonard Cohen)
+                                </span>
+                            </span>
+
+                            <span class="font-mono text-[11px]">
+                                05:33
+                            </span>
+
+                        </div>
+
+
+                        <div class="p-2.5 px-3 flex items-center justify-between">
+
+                            <span>
+                                <strong>03. Ciudad sin Sueño</strong>
+                                <span class="text-[#776D63]">
+                                    (Poeta en Nueva York)
+                                </span>
+                            </span>
+
+                            <span class="font-mono text-[11px]">
+                                05:46
+                            </span>
+
+                        </div>
+
+
+                        <div class="p-2.5 px-3 flex items-center justify-between">
+
+                            <span>
+                                <strong>04. Manhattan</strong>
+                                <span class="text-[#776D63]">
+                                    (First We Take Manhattan)
+                                </span>
+                            </span>
+
+                            <span class="font-mono text-[11px]">
+                                03:58
+                            </span>
+
+                        </div>
+
+
+                        <div class="p-2.5 px-3 flex items-center justify-between">
+
+                            <span>
+                                <strong>05. La Aurora de Nueva York</strong>
+                            </span>
+
+                            <span class="font-mono text-[11px]">
+                                04:59
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REVIEW -->
+
+                <div class="bg-[#F4EFEB] border border-brand-border rounded-lg p-5">
+
+                    <div class="space-y-3">
+
+                        <h3 class="font-bold text-[#1E1916] text-[13.5px]">
+                            📖 Reseña Curatorial & Notas de Archivo
+                        </h3>
+
+                        <p class="text-[12px] text-[#473E37] leading-relaxed">
+
+                            Publicado originalmente en 1996,
+                            <em class="font-serif">Omega</em>
+                            rompió los cimientos del flamenco y el rock alternativo español
+                            uniendo la voz jonda y libre de
+                            <strong>Enrique Morente</strong>
+                            con la furia eléctrica de los granadinos
+                            <strong>Lagartija Nick</strong>.
+
+                            Con letras vertebradas sobre la poesía desgarrada de
+                            Federico García Lorca en
+                            <em class="font-serif">Poeta en Nueva York</em>
+                            y adaptaciones de Leonard Cohen, esta tirada especial
+                            conmemora su estatus como piedra roseta de la vanguardia nacional.
+
+                        </p>
+
+                        <div class="pt-2 border-t border-[#DFD6CB] flex flex-wrap justify-between text-[10.5px] text-[#6E645A] gap-2">
+
+                            <div>
+                                Curador:
+                                <strong class="text-[#231C18]">
+                                    Mateo C. (Palmeras Records)
+                                </strong>
+                            </div>
+
+                            <div>
+                                Inspección de vinilo:
+                                <strong class="text-[#231C18]">
+                                    Grado Mint / Precintado de origen
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+
+                <div class="pt-2 flex flex-wrap items-center justify-between gap-3">
+
+                    <div class="flex items-center gap-2">
+
+                        <button class="px-3 py-1.5 bg-[#EDE6DC] hover:bg-[#E2D8CC] text-[#3D352E] font-medium text-[11px] rounded">
+                            Modificar Stock
+                        </button>
+
+                        <button class="px-3 py-1.5 bg-[#EDE6DC] hover:bg-[#E2D8CC] text-[#3D352E] font-medium text-[11px] rounded">
+                            Imprimir Etiquetas de Precios
+                        </button>
+
+                    </div>
+
+                    <button class="text-[#BE392B] hover:text-[#9A281C] text-[11px] font-semibold">
+                        🗑 Dar de baja
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
