@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
+
+:root {
+    /* =========================================
+       COLORES PRINCIPALES
+    ========================================= */
+
+    --terracotta: #A83B19;
+    --terracotta-dark: #8E3013;
+
+    --dark: #1C1917;
+
+    --cream: #FAF6F0;
+    --cream-light: #FDFBF7;
+    --cream-card: #FBF8F2;
+
+    --emerald: #296544;
+    --notification-green: #2B6647;
+
+    --white: #FFFFFF;
+
+    /* =========================================
+       COLORES STONE
+    ========================================= */
+
+    --stone-900: #1C1917;
+    --stone-800: #292524;
+    --stone-700: #44403C;
+    --stone-600: #57534E;
+    --stone-500: #78716C;
+    --stone-400: #A8A29E;
+    --stone-300: #D6D3D1;
+    --stone-200: #E7E5E4;
+    --stone-100: #F5F5F4;
+
+    /* =========================================
+       FILTROS
+    ========================================= */
+
+    --filter-background: #F3ECE0;
+    --filter-badge: #E8A523;
+
+    /* =========================================
+       INVENTARIO
+    ========================================= */
+
+    --inventory-background: #F9F7F2;
+    --low-stock-background: #FBF2E3;
+    --low-stock-border: #F2DEBA;
+    --low-stock: #B8681B;
+    --low-stock-text: #A65B11;
+
+    /* =========================================
+       NOTIFICACIÓN
+    ========================================= */
+
+    --notification-icon: #E5A93C;
+
+    /* =========================================
+       TIPOGRAFÍAS
+    ========================================= */
+
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+
+    /* =========================================
+       BORDES
+    ========================================= */
+
+    --border-radius: 12px;
+    --card-radius: 16px;
+
+    /* =========================================
+       SOMBRAS
+    ========================================= */
+
+    --shadow-xl:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+    --shadow-sm:
+        0 1px 3px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px -1px rgba(0, 0, 0, 0.1);
+
+    --shadow-card:
+        0 2px 8px rgba(0, 0, 0, 0.04);
+}

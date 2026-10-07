@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Discos - Inventario Físico</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variable.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <div class="catalog-container">
+
+        <!-- Success notification -->
+        <div class="success-notification">
+
+            <div class="notification-content">
+
+                <span class="notification-icon">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </span>
+
+                <span>
+                    Álbum “Omega” actualizado correctamente...
+                </span>
+
+            </div>
+
+            <button
+                class="notification-close"
+                aria-label="Cerrar notificación"
+                type="button">
+
+                <svg viewBox="0 0 24 24">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+
+            </button>
+
+        </div>
+
+
+        <!-- Search and filters -->
+        <section class="search-section">
+
+            <div class="search-container">
+
+                <div class="search-input-container">
+
+                    <svg
+                        class="search-icon"
+                        viewBox="0 0 24 24">
+
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="8">
+                        </circle>
+
+                        <line
+                            x1="21"
+                            y1="21"
+                            x2="16.65"
+                            y2="16.65">
+                        </line>
+
+                    </svg>
+
+                    <!-- CORREGIDO: añadido class="search-input" -->
+                    <input
+                        id="searchInput"
+                        class="search-input"
+                        type="text"
+                        placeholder="Título, artista, código EAN...">
+
+                </div>
+
+
+                <button
+                    id="filtersButton"
+                    class="filters-button"
+                    type="button">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <line
+                            x1="4"
+                            y1="21"
+                            x2="4"
+                            y2="14">
+                        </line>
+
+                        <line
+                            x1="4"
+                            y1="10"
+                            x2="4"
+                            y2="3">
+                        </line>
+
+                        <line
+                            x1="12"
+                            y1="21"
+                            x2="12"
+                            y2="12">
+                        </line>
+
+                        <line
+                            x1="12"
+                            y1="8"
+                            x2="12"
+                            y2="3">
+                        </line>
+
+                        <line
+                            x1="20"
+                            y1="21"
+                            x2="20"
+                            y2="16">
+                        </line>
+
+                        <line
+                            x1="20"
+                            y1="12"
+                            x2="20"
+                            y2="3">
+                        </line>
+
+                        <line
+                            x1="1"
+                            y1="14"
+                            x2="7"
+                            y2="14">
+                        </line>
+
+                        <line
+                            x1="9"
+                            y1="8"
+                            x2="15"
+                            y2="8">
+                        </line>
+
+                        <line
+                            x1="17"
+                            y1="16"
+                            x2="23"
+                            y2="16">
+                        </line>
+
+                    </svg>
+
+                    <span>Filtros</span>
+
+                    <span class="filter-badge">
+                        3
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- Filters -->
+            <div class="filters-panel">
+
+                <!-- Record label -->
+                <div class="filter-field">
+
+                    <label for="labelFilter">
+                        DISCOGRÁFICA
+                    </label>
+
+                    <div class="select-container">
+
+                        <select id="labelFilter">
+
+                            <option>
+                                Discos El Volcán
+                            </option>
+
+                            <option>
+                                Impulse! Records
+                            </option>
+
+                            <option>
+                                Universal Music
+                            </option>
+
+                        </select>
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7"></path>
+                        </svg>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Base format -->
+                <div class="filter-field">
+
+                    <label for="formatFilter">
+                        FORMATO BASE
+                    </label>
+
+                    <div class="select-container">
+
+                        <select id="formatFilter">
+
+                            <option>
+                                Vinilo (12" / LP / Gatefold)
+                            </option>
+
+                            <option>
+                                CD Digipack
+                            </option>
+
+                            <option>
+                                Cassette
+                            </option>
+
+                        </select>
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7"></path>
+                        </svg>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Store -->
+                <div class="filter-field">
+
+                    <label for="storeFilter">
+                        ALMACÉN / TIENDA
+                    </label>
+
+                    <div class="select-container">
+
+                        <select id="storeFilter">
+
+                            <option>
+                                Central Toledo (C/ Sol)
+                            </option>
+
+                            <option>
+                                Madrid Sucursal Malasaña
+                            </option>
+
+                        </select>
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7"></path>
+                        </svg>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Genre -->
+                <div class="filter-field">
+
+                    <label>
+                        GÉNERO Y ESTILO MUSICAL
+                    </label>
+
+                    <div class="genre-tags">
+
+                        <button
+                            class="genre-tag all active"
+                            type="button">
+                            Todos
+                        </button>
+
+                        <button
+                            class="genre-tag selected"
+                            type="button">
+                            Flamenco Rock
+                        </button>
+
+                        <button
+                            class="genre-tag"
+                            type="button">
+                            Jazz Espiritual
+                        </button>
+
+                        <button
+                            class="genre-tag"
+                            type="button">
+                            Pop E...
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Filter actions -->
+                <div class="filter-actions">
+
+                    <button
+                        id="clearFilters"
+                        class="clear-filters"
+                        type="button">
+
+                        Limpiar filtros
+
+                    </button>
+
+                    <button
+                        id="applyFilters"
+                        class="apply-filters"
+                        type="button">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <polyline
+                                points="20 6 9 17 4 12">
+                            </polyline>
+
+                        </svg>
+
+                        <span>
+                            Aplicar (3 activos)
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Catalog -->
+        <main class="catalog-list">
+
+
+            <!-- Omega -->
+            <article class="album-card">
+
+                <div class="album-header">
+
+                    <div class="album-cover">
+
+                        <img
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHw7yt_VN4oGwV8BAj9JKHdnIhiz5YSr7b0G0Z2v_5_kyUis6wyGNGpblzCTN9uHM3ON5BYpiRONB8o1wVgTQUNoVK579dqyv3-BJqlSrn52R66iCYzBzUinHWhPKEyuxg24iTPUJvcau4x_BTEcLFDsYMs0noH2sA89tGO4cikwYNCYaOz7H8Ng5c1oBflpUmTdPYaR3GqiDmST_aaLnpSwZGzvBzFUvQtuQc_dJn"
+                            alt="Portada de Omega de Enrique Morente">
+
+                        <span class="vinyl-badge">
+
+                            <svg viewBox="0 0 24 24">
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="10">
+                                </circle>
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="3">
+                                </circle>
+
+                            </svg>
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="album-information">
+
+                        <div class="album-top">
+
+                            <div>
+
+                                <p class="album-meta">
+                                    1996 · DISCOS EL VOLCÁN
+                                </p>
+
+                                <h2>
+                                    Omega
+                                </h2>
+
+                                <p class="artist">
+                                    Enrique Morente &amp; ...
+                                </p>
+
+                            </div>
+
+
+                            <div class="album-actions">
+
+                                <button
+                                    class="edit-button"
+                                    aria-label="Editar"
+                                    type="button">
+
+                                    <svg viewBox="0 0 24 24">
+
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+
+                                    </svg>
+
+                                </button>
+
+
+                                <button
+                                    class="delete-button"
+                                    aria-label="Eliminar"
+                                    type="button">
+
+                                    <svg viewBox="0 0 24 24">
+
+                                        <polyline
+                                            points="3 6 5 6 21 6">
+                                        </polyline>
+
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+
+                                    </svg>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="album-tags">
+
+                            <span class="genre-label">
+                                Flamenco Rock
+                            </span>
+
+                            <span class="ean">
+                                EAN: 8435015502914
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Inventory -->
+                <div class="inventory">
+
+                    <div class="inventory-row">
+
+                        <div class="format">
+
+                            <span class="stock-dot"></span>
+
+                            <span>
+                                Vinilo LP
+                            </span>
+
+                        </div>
+
+                        <div class="stock-info">
+
+                            <strong>
+                                28,50 €
+                            </strong>
+
+                            <span>
+                                14 uds
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="inventory-row">
+
+                        <div class="format">
+
+                            <span class="stock-dot"></span>
+
+                            <span>
+                                CD Digipack
+                            </span>
+
+                        </div>
+
+                        <div class="stock-info">
+
+                            <strong>
+                                14,00 €
+                            </strong>
+
+                            <span>
+                                32 uds
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="inventory-row low-stock">
+
+                        <div class="format">
+
+                            <span class="low-stock-dot"></span>
+
+                            <span>
+                                Cassette Ed. Esp.
+                            </span>
+
+                        </div>
+
+                        <div class="stock-info">
+
+                            <strong>
+                                18,00 €
+                            </strong>
+
+                            <span>
+                                ¡4 uds!
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- A Love Supreme -->
+            <article class="album-card album-card-secondary">
+
+                <div class="album-header">
+
+                    <div class="album-cover">
+
+                        <img
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpSzujQj3s9mS4H7jlThVRnhxrCDN68w__SIrSYKVqxS6TECvi9v0zpszsz2x-PHG_Msr_X8VerK4TgGldSuNqaTyXaaRkYGgVSi5Z7yd49FMq2RpMJDn-ZG5PgGs1XXJMeFPwJLPaUa2YPH4m6CPe4SE_hoRHt50tmtleRqriFHW5dBZLqmJutEEy173oJlMYSST7LCMMDTpGWFKfkWcw7gZl9JbqPkFDHAzaMxHp"
+                            alt="Portada de A Love Supreme">
+
+                        <span class="vinyl-badge">
+
+                            <svg viewBox="0 0 24 24">
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="10">
+                                </circle>
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="3">
+                                </circle>
+
+                            </svg>
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="album-information">
+
+                        <div class="album-top">
+
+                            <div>
+
+                                <p class="album-meta">
+                                    1965 · IMPULSE!
+                                </p>
+
+                                <h2>
+                                    A Love Supreme
+                                </h2>
+
+                                <p class="artist">
+                                    John Coltrane Quartet
+                                </p>
+
+                            </div>
+
+
+                            <div class="album-actions">
+
+                                <button
+                                    class="edit-button"
+                                    aria-label="Editar"
+                                    type="button">
+
+                                    <svg viewBox="0 0 24 24">
+
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7"></path>
+
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+
+                                    </svg>
+
+                                </button>
+
+
+                                <button
+                                    class="delete-button"
+                                    aria-label="Eliminar"
+                                    type="button">
+
+                                    <svg viewBox="0 0 24 24">
+
+                                        <polyline
+                                            points="3 6 5 6 21 6">
+                                        </polyline>
+
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+
+                                    </svg>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="album-tags">
+
+                            <span class="genre-label">
+                                Jazz Espiritual
+                            </span>
+
+                            <span class="ean">
+                                EAN: 0602517648384
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

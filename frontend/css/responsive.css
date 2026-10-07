@@ -1,0 +1,82 @@
+/* Pantallas pequeñas */
+@media (max-width: 480px) {
+
+    .catalog-container {
+        width: 100%;
+        max-width: 448px;
+        box-shadow: none;
+    }
+
+    .success-notification {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .search-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .catalog-list {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+
+    .search-container {
+        gap: 6px;
+    }
+
+    .filters-button {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+    .album-card {
+        padding: 12px;
+    }
+
+    .album-cover-container,
+    .album-cover {
+        width: 72px;
+        height: 72px;
+        min-width: 72px;
+    }
+
+    .album-title {
+        font-size: 15px;
+    }
+
+    .album-actions {
+        gap: 2px;
+    }
+
+    .edit-button,
+    .delete-button {
+        width: 26px;
+        height: 26px;
+    }
+
+    .inventory-row {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+
+/* Pantallas grandes */
+@media (min-width: 768px) {
+
+    body {
+        padding-bottom: 48px;
+    }
+
+    .catalog-container {
+        min-height: calc(100vh - 48px);
+        margin-top: 0;
+    }
+}
